@@ -1,0 +1,307 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Profile Edit</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'styles/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'styles/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'styles/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<script>
+document.getElementById('delete-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (confirm('Are you sure you want to delete your profile? This action cannot be undone.')) {
+        this.submit();
+    }
+});
+</script>
+
+<style>
+    .profile_edit_box {
+        width: fit-content;
+        background-color: inherit;
+        overflow:;
+        padding: 30px;
+        {#padding-left: 100px;#}
+        {#padding-right: 100px;#}
+        display: ;
+        align-content: center;
+        position: ;
+        margin-left: 10%;
+        text-align: left;
+        margin-top: 2%;
+    }
+    .profile_edit_form {
+        color: white;
+        content:  ;
+        align-content: center;
+        text-align: right;
+
+    }
+    .form-group {
+        content: ;
+        float: ;
+        align-content: center;
+        text-align: ;
+        margin: 10px;
+        margin-top: 15px;
+
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 6%;
+
+    }
+    .button {
+        color: white;
+        width: 170px;
+        background: #0f1157;
+        height: 40px;
+        border-radius: 25px;
+        border-style: hidden;
+    }
+    .button:hover {
+        background: #111e4a;
+    }
+    .update_profile_button {
+        color: white;
+        display: block;
+        width: 170px;
+        background: #0f1157;
+        height: 40px;
+        border-radius: 25px;
+        border-style: hidden;
+    }
+    .update_profile_button:hover {
+        background: #111e4a;
+    }
+    .gosh-ko {
+        border-radius: 50px;
+    }
+</style>
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+{#          <a class="navbar-brand" href="{% url 'index page' %}">#}
+{#            <span>#}
+{#              GAMES#}
+{#            </span>#}
+{#          </a>#}
+          <a class="navbar-brand" href="{% url 'index page'%}">
+              <span>
+                  {{ user.username }}
+              </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index page' %}">Home</a>
+              </li>
+{#
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 mx-auto">
+            <div class="detail-box">
+            <section class="expert_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Profile Edit
+        </h2>
+      </div>
+
+                <div class="profile_edit_box">
+                    <form method="post" class="profile_edit_form">
+                        {% csrf_token %}
+{#                        {{ form.as_p }}#}
+                        <div class="form-group">
+                            <label class="gosh-ko" for="{{ form.username.id_for_label }}">Username:</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email:</label>
+                            {{ form.email }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="button-container">
+                            <a href="{% url 'profile delete page' %}" class="button-container">
+                                <button class="button" id="showDelete">Delete Profile</button>
+                            </a>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" class="update_profile_button">Update Profile</button>
+                        </div>
+                    </form>
+{#                    <form method="post" action="{% url 'profile edit page' %}" id="delete-form">#}
+{#                        {% csrf_token %}#}
+{#                        {{ form.as_p }}#}
+{#                        <button type="submit" class="delete-button">Delete Profile</button>#}
+{#                    </form>#}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 info_links">
+          <h4>
+            Menu
+          </h4>
+          <ul>
+            <li class="active">
+              <a href="{% url 'index page' %}">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'about page' %}">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="" href="{% url 'games page' %}">
+                Games
+              </a>
+            </li>
+            <li>
+              <a class="" href="{% url 'experts page' %}">
+                Game Experts
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Game
+          </h4>
+          <p>
+            A game is an activity or sport usually involving skill, knowledge, or chance, in which you follow fixed rules and try to win against an opponent or to solve a puzzle.
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_social">
+            <h4>
+              Social Link
+            </h4>
+            <div class="social_container">
+              <div>
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="false"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/">
+                  <i class="fas fa-apple-alt" aria-hidden="false"></i>
+                </a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/">
+                  <i class="fa">&#xf16d;</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              GameNews
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js'%}"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js'%}"></script>
+
+
+</body>
+
+</html>

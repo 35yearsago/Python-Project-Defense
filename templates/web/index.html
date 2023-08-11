@@ -1,0 +1,758 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>SearchingForGames</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'styles/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'styles/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'styles/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+{#          <a class="navbar-brand" href="{% url 'index page' %}">#}
+{#            <span>#}
+{#              GAMES#}
+{#            </span>#}
+{#          </a>#}
+          <a class="navbar-brand" href="{% url 'profile edit page'%}">
+              <span>
+                  {{ user.username }}
+              </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index page' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about page' %}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'games page' %}">Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'experts page'%}">Game Experts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home page' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Log out
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile edit page' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Profile
+                  </span>
+                </a>
+              </li>
+              <form class="form-inline">
+                <button class="btn   nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 mx-auto">
+            <div class="detail-box">
+              <h1>
+                SEARCHING<br>
+                FOR GAMES
+              </h1>
+                {% if user.is_authenticated %}
+              <p>
+                Wellcome...{{ user.username }}
+              </p>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="find_container ">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <form>
+                  <div class="form-row ">
+                    <div class="form-group col-lg-3">
+                      <input type="text" class="form-control" id="inputPatientName" placeholder="Games">
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="" class="form-control wide" id="inputDoctorName">
+                        <option value="Normal distribution ">All Genres</option>
+                        <option value="Normal distribution ">genre 1 </option>
+                        <option value="Normal distribution ">genre 2 </option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <select name="" class="form-control wide" id="inputDepartmentName">
+                        <option value="Normal distribution ">Free </option>
+                        <option value="Normal distribution ">Web Designer </option>
+                        <option value="Normal distribution ">Web Developer</option>
+                        <option value="Normal distribution ">Graphic Deesigner</option>
+                        <option value="Normal distribution ">Content Writer</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <div class="btn-box">
+                        <button type="submit" class="btn ">Submit Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <ul class="job_check_list">
+              <li class=" ">
+                <input id="checkbox_qu_01" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_01">
+                  I <3 Games!
+                </label>
+              </li>
+              <li class=" ">
+                <input id="checkbox_qu_02" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_02">
+                  Enjoyer
+                </label>
+              </li>
+              <li class=" ">
+                <input id="checkbox_qu_03" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_03">
+                  Full Time
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+  <!-- category section -->
+  <section class="category_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="{% url 'real-time strategy page' %}" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/strategi.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Real-time strategy
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="{% url 'shooter page' %}" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/sooter.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Shooter
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/multiplayer.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Multiplayer online battle arena
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/role.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Role-playing games
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/sim.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Simulation and sports
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/sandbox.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Sandbox
+              </h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end category section -->
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+                Hello {{ user.username }}! Hire we post games, and good players!
+                Enjoy searching for games and viewing the best players in them.
+            </p>
+            <a href="{% url 'about page' %}">
+              Read More
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/AboutUs.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- job section -->
+  <section class="job_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          RECOMMENDED GAMES
+        </h2>
+      </div>
+      <div class="job_container">
+        <h4 class="job_heading">
+          Most Popular Games
+        </h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img class="image image-contain" src="{%  static 'images/minecraft.png'%}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Minecraft
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Mojang Studios
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        $20
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="{%  static 'images/fortnite.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Fortnite
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Epic Games
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        Free
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="job_container">
+        <h4 class="job_heading">
+            Games
+        </h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="{%  static 'images/naraka.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Naraka Bladepoint
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                         NetEase Inc
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        $ Free
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="http://www.narakathegame.com/" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="{%  static 'images/warhammerr.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Total War Warhammer III
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        SEGA
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        $59.99
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="https://store.steampowered.com/app/1142710/Total_War_WARHAMMER_III/" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="{%  static 'images/wow.png' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    World of Warcraft
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Blizzard Entertainment
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        $15/mo
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="https://worldofwarcraft.blizzard.com/en-us/" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="box">
+              <div class="job_content-box">
+                <div class="img-box">
+                  <img src="{%  static 'images/hunt.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>Hunt: Showdown
+                  </h5>
+                  <div class="detail-info">
+                    <h6>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Crytek
+                      </span>
+                    </h6>
+                    <h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <span>
+                        $39.99
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="option-box">
+                <button class="fav-btn">
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                <a href="https://www.huntshowdown.com/" class="apply-btn">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'games page' %}">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end job section -->
+
+  <!-- expert section -->
+
+  <section class="expert_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          LOOKING FOR EXPERIENCED PLAYERS IN GAMES?
+        </h2>
+        <p>
+          We have none!
+
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/prof1.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Anonymous
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Gamer
+                </span>
+                <span>
+                  34 Games Done
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                Random Game Enjoyer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/prof2.webp'%}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Anonymous
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Full Time
+                </span>
+                <span>
+                  64 Games Done
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                Random Full Time Gamer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/prof2.webp'%}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Anonymous
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Enjoyer
+                </span>
+                <span>
+                  17 Games Done
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                Random Games Enjoyer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'experts page' %}">
+          View All Players
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end expert section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 info_links">
+          <h4>
+            Menu
+          </h4>
+          <ul>
+            <li class="active">
+              <a href="{% url 'index page' %}">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'about page' %}">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="" href="{% url 'games page' %}">
+                Games
+              </a>
+            </li>
+            <li>
+              <a class="" href="{% url 'experts page' %}">
+                Game Experts
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Game
+          </h4>
+          <p>
+            A game is an activity or sport usually involving skill, knowledge, or chance, in which you follow fixed rules and try to win against an opponent or to solve a puzzle.
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_social">
+            <h4>
+              Social Link
+            </h4>
+            <div class="social_container">
+              <div>
+                <a href="https://bg-bg.facebook.com/">
+                  <i class="fa fa-facebook" aria-hidden="false"></i>
+                </a>
+              </div>
+              <div>
+                <a href="https://twitter.com/?lang=bg">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="https://www.instagram.com/">
+                  <i class="fa fa-instagram" aria-hidden="false"></i>
+                </a>
+              </div>
+              <div>
+                <a href="https://www.youtube.com/">
+                  <i class="fa fa-youtube" aria-hidden="false"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              GameNews
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js'%}"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js'%}"></script>
+
+
+</body>
+
+</html>

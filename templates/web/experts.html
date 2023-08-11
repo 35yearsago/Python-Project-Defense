@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Experts</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'styles/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'styles/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'styles/responsive.css' %}c" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'index page' %}">
+            <span>
+              GAMES
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'index page'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about page'%}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'games page'%}">Games</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'experts page'%}">Game Experts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home page' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Log out
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile edit page' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Profile
+                  </span>
+                </a>
+              </li>
+              <form class="form-inline">
+                <button class="btn   nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- expert section -->
+
+  <section class="expert_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          LOOKING FOR GAME EXPERTS?
+        </h2>
+        <p>
+          Wellcome {{ user.username }}! Hire are the best players in world.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/faker.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Faker
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Real name: Lee Sang-hyeok
+                </span>
+                <span>
+                  League of Legends
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                Lee Sang-hyeok (Korean: 이상혁; born May 7, 1996),
+                  known by his professional name Faker,
+                  is a South Korean League of Legends player who currently competes for T1.
+                  He gained prominence after joining SK Telecom T1 (now T1) in 2013,
+                  where he has since played as the team's mid laner.
+                  Often hailed as the "Michael Jordan of esports",
+                  Faker is widely regarded as the greatest League of Legends player in history.
+                  Throughout his career, he has secured a record of 10 League of Legends Champions Korea (LCK) titles,
+                  two Mid-Season Invitational (MSI) titles, and three World Championship titles.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/daigo.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Daigo
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Real name: Daigo Umehara
+                </span>
+                <span>
+                   Street Fighter VI
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                Daigo Umehara (Japanese: 梅原 大吾, Hepburn: Umehara Daigo,
+                  born 19 May 1981) is a Japanese esports player who competes competitively at fighting video games.
+                  He specializes in 2D arcade fighting games,
+                  mainly those released by Capcom. Known as "Daigo" or "The Beast" in the West and "Umehara" (ウメハラ,
+                  written in katakana instead of kanji) or "Ume" in Japan,
+                  Daigo is one of the world's most famous Street Fighter players and is often considered its greatest as well.
+                  His longevity is seen as an incredibly rare thing in the world of competitive video games.
+                  He currently holds a world record of "the most successful player in major tournaments of Street Fighter"
+                  in the Guinness World Records and is a six time Evo Championship Series winner.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/drututt.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <a href="">
+                Drututt
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  Maks Przychodzień
+                </span>
+                <span>
+                  League of Legends
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                  Challenger EUW Top laner.
+                Fav champions:
+                Akshan and Viego
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View More Players
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end expert section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 info_links">
+          <h4>
+            Menu
+          </h4>
+          <ul>
+            <li>
+              <a href="{% url 'index page' %}">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'about page' %}">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'games page' %}">
+                Jobs
+              </a>
+            </li>
+            <li>
+              <a class="active" href="{% url 'experts page' %}">
+                Freelancers
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Game
+          </h4>
+          <p>
+            A game is an activity or sport usually involving skill, knowledge, or chance, in which you follow fixed rules and try to win against an opponent or to solve a puzzle.
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_social">
+            <h4>
+              Social Link
+            </h4>
+            <div class="social_container">
+              <div>
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

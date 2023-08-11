@@ -1,0 +1,13 @@
+{% extends profile_edit.html %}
+
+{% block content %}
+<div class="profile delete">
+    <div class="delete-button-container">
+        <p>Are you sure you want to delete your profile?</p>
+        <form method="post" action="{% url 'profile delete' %}">
+            {% csrf_token %}
+            <button type="submit" class="button" id="confirmDelete">Delete Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
